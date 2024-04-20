@@ -48,3 +48,23 @@ h2 {
         border: 1px solid #dee2e6;
         padding: 8px;
     }
+
+/* Style Done badge */
+.badge {
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+}
+
+/* Style action buttons */
+.btn-info, .btn-danger {
+    margin-right: 5px;
+}
