@@ -1,0 +1,70 @@
+﻿@model ToDo.Domain.ToDo
+
+@{
+    ViewBag.Title = "Add Task";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <!-- Link to your custom CSS file for AddTask -->
+    <link rel="stylesheet" href="~/css/AddTask.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Add Task</h2>
+            </div>
+            <div class="col-md-6">
+                <div class="float-right">
+                    <a href="@Url.Action("Index")" class="back-to-list-button">Back</a>
+                </div>
+            </div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Task, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <!-- Task Form -->
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Task, new { htmlAttributes = new { @class = "form-control input-field" } })
+                        @Html.ValidationMessageFor(model => model.Task, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!-- Date Form -->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control input-field", type = "date" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+
+                <!-- Add Button -->
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Add" class="btn btn-primary submit-button" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</body>
+</html>
