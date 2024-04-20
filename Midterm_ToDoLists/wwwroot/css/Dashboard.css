@@ -1,0 +1,16 @@
+/* Apply general styles to the dashboard container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the header */
+h2 {
+    margin-top: 0;
+}
+
+/* Style the "Create New" button in the header cell */
+.table th.create-new {
+    text-align: center; /* Center-align the button */
+}
