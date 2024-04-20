@@ -24,5 +24,30 @@ namespace Midterm_ToDoLists.Controllers
 
             return View(numberedTodos);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(ToDo.Domain.ToDo todo)
+        {
+            if (string.IsNullOrWhiteSpace(todo.Task) || string.IsNullOrWhiteSpace(todo.Date))
+            {
+                ModelState.AddModelError("", "Fields must not be empty");
+                return View(todo);
+            }
+            _toDoService.Create(todo);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var todo = _toDoService.GetById(id);
+            return View(todo);
+        }
     }
 }
