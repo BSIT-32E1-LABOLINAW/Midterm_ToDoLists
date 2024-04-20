@@ -30,4 +30,9 @@ namespace ToDo.Services
     {
         _repository.Update(updatedTodo);
     }
+    public void Delete(int id)
+    {
+        _repository.Delete(id);
+    }
+
 }
