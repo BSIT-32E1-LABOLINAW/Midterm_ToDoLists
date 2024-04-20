@@ -18,4 +18,8 @@ namespace ToDo.Services
     {
         return _repository.Create(todo);
     }
+    public Domain.ToDo GetById(int id)
+    {
+        return _repository.GetById(id);
+    }
 }
