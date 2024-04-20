@@ -18,3 +18,22 @@
     text-decoration: none;
     display: inline-block;
 }
+
+.back-to-list-button {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}
+
+    .back-to-list-button:hover {
+        background-color: deepskyblue;
+    }
+
+.submit-button {
+    background-color: #007bff;
+    border: 1px solid #28a745;
+    margin-right: 10px;
+}
+
+    .submit-button:hover {
+        background-color: deepskyblue; /* Darker green color */
+    }
