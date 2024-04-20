@@ -22,4 +22,12 @@ namespace ToDo.Services
     {
         return _repository.GetById(id);
     }
+    public IEnumerable<Domain.ToDo> GetAll()
+    {
+        return _repository.GetAll();
+    }
+    public void Update(Domain.ToDo updatedTodo)
+    {
+        _repository.Update(updatedTodo);
+    }
 }
