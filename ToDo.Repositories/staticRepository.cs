@@ -24,5 +24,25 @@ namespace ToDo.Repository
         {
             return _todos.ToList();
         }
+        public Domain.ToDo GetById(int id)
+        {
+            return _todos.FirstOrDefault(t => t.Id == id);
+        }
+
+        public IEnumerable<Domain.ToDo> GetAll()
+        {
+            return _todos.ToList();
+        }
+
+        public void Update(Domain.ToDo updatedTodo)
+        {
+            var existingTodo = GetById(updatedTodo.Id);
+            if (existingTodo != null)
+            {
+                existingTodo.Task = updatedTodo.Task;
+                existingTodo.Date = updatedTodo.Date;
+                existingTodo.Done = updatedTodo.Done;
+            }
+        }
     }
 }
