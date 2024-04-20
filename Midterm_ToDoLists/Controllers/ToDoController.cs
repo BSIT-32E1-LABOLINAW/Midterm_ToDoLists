@@ -61,5 +61,10 @@ namespace Midterm_ToDoLists.Controllers
             _toDoService.Update(todo);
             return RedirectToAction("Index");
         }
+        public ActionResult Delete(int id)
+        {
+            _toDoService.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
