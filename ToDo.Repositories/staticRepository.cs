@@ -15,15 +15,7 @@ namespace ToDo.Repository
             _todos.Add(todo);
             return todo;
         }
-        public Domain.ToDo GetById(int id)
-        {
-            return _todos.FirstOrDefault(t => t.Id == id);
-        }
 
-        public IEnumerable<Domain.ToDo> GetAll()
-        {
-            return _todos.ToList();
-        }
         public Domain.ToDo GetById(int id)
         {
             return _todos.FirstOrDefault(t => t.Id == id);
@@ -42,6 +34,15 @@ namespace ToDo.Repository
                 existingTodo.Task = updatedTodo.Task;
                 existingTodo.Date = updatedTodo.Date;
                 existingTodo.Done = updatedTodo.Done;
+            }
+        }
+
+        public void Delete(int id)
+        {
+            var todoToRemove = GetById(id);
+            if (todoToRemove != null)
+            {
+                _todos.Remove(todoToRemove);
             }
         }
     }
