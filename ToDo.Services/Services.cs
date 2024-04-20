@@ -14,4 +14,8 @@ namespace ToDo.Services
             _repository = repository;
         }
     }
+    public Domain.ToDo Create(Domain.ToDo todo)
+    {
+        return _repository.Create(todo);
+    }
 }
