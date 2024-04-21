@@ -3,77 +3,77 @@
 @{
     ViewBag.Title = "Edit";
 }
-<style>
-    .btn-default {
-        background-color: #7DCFDE;
-        color: #fff;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
 
-
-        .btn-default:hover {
-            background-color: #377081;
-        }
-
-    .checkbox input[type="checkbox"] {
-        transform: scale(1.9);
-        margin-right: 10px;
-    }
-
-</style>
-
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>ToDo</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id) <!-- Add a hidden field for the Id -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Task, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Task, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Task, "", new { @class = "text-danger" })
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <!-- Link to your custom CSS file for Edit -->
+    <link rel="stylesheet" href="~/css/Edit.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Edit Task</h2>
             </div>
-        </div>
-
-        <!-- Add the Category field -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <!-- Add the Done field if needed -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Done, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Done)
-                    @Html.ValidationMessageFor(model => model.Done, "", new { @class = "text-danger" })
+            <div class="col-md-6">
+                <div class="float-right">
+                    <a href="@Url.Action("Index")" class="back-to-list-button">Back</a>
                 </div>
             </div>
         </div>
-        <br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Task, "Task:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Task, new { htmlAttributes = new { @class = "form-control input-field" } })
+                        @Html.ValidationMessageFor(model => model.Task, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!-- Date Form -->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, "Date:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control input-field", type = "date" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!-- Done Form -->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Done, "Status:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(model => model.Done, new { @class = "checkbox-input" })
+                            <label class="checkbox-label" for="Done"></label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Done, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+
+                <!-- Save Button -->
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-primary submit-button" />
+                    </div>
+                </div>
             </div>
-        </div>
+        }
     </div>
-}
-<br />
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+</body>
+</html>
