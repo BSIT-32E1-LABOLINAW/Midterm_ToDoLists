@@ -27,3 +27,13 @@
     .back-to-list-button:hover {
         background-color: deepskyblue;
     }
+
+.submit-button {
+    background-color: #007bff;
+    border: 1px solid #28a745;
+    margin-right: 10px;
+}
+
+    .submit-button:hover {
+        background-color: deepskyblue; /* Darker green color */
+    }
