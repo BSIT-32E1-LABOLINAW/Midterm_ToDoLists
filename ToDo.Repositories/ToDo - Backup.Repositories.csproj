@@ -18,8 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Midterm_ToDoLists\Midterm_ToDoLists.csproj" />
-    <ProjectReference Include="..\ToDo.Repositories\ToDo.Repositories.csproj" />
+    <ProjectReference Include="..\ToDo.Domain\ToDo.Domain.csproj" />
   </ItemGroup>
 
 </Project>
