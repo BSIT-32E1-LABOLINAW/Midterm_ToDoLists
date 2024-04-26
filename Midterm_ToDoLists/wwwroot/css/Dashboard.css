@@ -12,7 +12,7 @@ h2 {
 
 /* Style the "Create New" button in the header cell */
 .table th.create-new {
-    text-align: center; /* Center-align the button */
+    text-align: right; /* Align the button to the right */
 }
 
     .table th.create-new a {
@@ -67,4 +67,9 @@ h2 {
 /* Style action buttons */
 .btn-info, .btn-danger {
     margin-right: 5px;
+}
+
+/* Align the btn-primary to the right */
+.btn-primary {
+    float: right;
 }
